@@ -1,0 +1,1 @@
+paste this script in microsoft edge to download all animation data from mixamo

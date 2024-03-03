@@ -1,4 +1,7 @@
 <script>
+	/**
+	 * play animation at a given frame, used to take screenshot by 'video-recorder'
+	 */
 	import _ from "lodash";
 	import { onDestroy, onMount } from "svelte";
 	import * as THREE from "three";
