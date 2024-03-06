@@ -60,7 +60,8 @@
 
 		Promise.all([
 			loadGLTF(`/glb/dors.glb`),
-			loadJSON(`/anim-json-euler/Zombie Walk.json`),
+			// loadJSON(`/anim-json-euler/Zombie Walk.json`),
+			loadJSON(`/output.json`),
 		]).then(([glb_model, anim_data]) => {
 			glb_model = glb_model.scene.children[0];
 
@@ -86,15 +87,29 @@
 
 			console.log(bones);
 
+			// animation_data = {};
+
+			max_anim_step = anim_data["Hips"].values.length;
+
+			// animation_data = anim_data;
+			// iterate over anim_data object
+
 			animation_data = {};
 
-			for (let i = 0; i < anim_data.length; i++) {
-				animation_data[anim_data[i]["name"]] = anim_data[i]["values"];
+			for (let bone_name in anim_data) {
+				animation_data[bone_name] = anim_data[bone_name].values;
+			}
 
-				console.log(anim_data[i]["values"].length);
+			if (false) {
+				for (let i = 0; i < anim_data.length; i++) {
+					animation_data[anim_data[i]["name"]] =
+						anim_data[i]["values"];
 
-				if (anim_data[i]["values"].length > max_anim_step) {
-					max_anim_step = anim_data[i]["values"].length;
+					console.log(anim_data[i]["values"].length);
+
+					if (anim_data[i]["values"].length > max_anim_step) {
+						max_anim_step = anim_data[i]["values"].length;
+					}
 				}
 			}
 
