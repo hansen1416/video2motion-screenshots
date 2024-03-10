@@ -60,8 +60,8 @@
 
 		Promise.all([
 			loadGLTF(`/glb/dors.glb`),
-			// loadJSON(`/anim-json-euler/Zombie Walk.json`),
-			loadJSON(`/output.json`),
+			loadJSON(`/anim-json-euler/Zombie Walk.json`),
+			// loadJSON(`/output.json`),
 		]).then(([glb_model, anim_data]) => {
 			glb_model = glb_model.scene.children[0];
 
